@@ -19,6 +19,18 @@ pipeline {
                 }
             }
         }
+        stage('docker login) {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'manoj', usernameVariable: 'nani')]) {
+                sh 'docker login --username $nani --password $manoj'
+                    }
+                }
+            }
+              }
+              
+              
+
         stage('docker push') {
             steps {
                 script {
