@@ -1,5 +1,9 @@
 pipeline {
-    agent any 
+    agent any
+    environment {
+        DOCKER_IMAGE_NAME = 'manojreddy12/docker'
+        DOCKER_IMAGE_TAG = 'v6.7'
+    }
     stages {
         stage('docker images') {
             steps {
@@ -11,7 +15,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    sh 'sudo docker build -t nanireddy1729/nanireddy:v3.7 .'
+                    docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
                 }
             }
         }
