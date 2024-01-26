@@ -1,5 +1,7 @@
 # Use an official Tomcat runtime as a parent image
 FROM tomcat:latest
+# Update package lists and install Vim
+RUN apt-get update && apt-get install -y vim
 
 # Copy your war file into the webapps directory of Tomcat
 COPY SampleWebApp.war /usr/local/tomcat/webapps
