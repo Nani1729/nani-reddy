@@ -27,9 +27,7 @@ pipeline {
                     }
                 }
             }
-              }
-              
-              
+              }        
 
         stage('docker push') {
             steps {
@@ -38,5 +36,12 @@ pipeline {
                 }
             }
         }
+        stage('dockerrun container') {
+            steps {
+                script {
+                    sh 'sudo docker run -itd -p 8080:8080 --name tomcat $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
+                }
+            }
+        }           
     }
 }
