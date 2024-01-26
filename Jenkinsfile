@@ -39,7 +39,7 @@ pipeline {
         stage('dockerrun container') {
             steps {
                 script {
-                    sh 'sudo docker run -itd -p 8080:8080 --name tomcat $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
+                    sh 'sudo docker service create --name tomcar-service --mount type=volume,source=my-tomcat-volume,target=/usr/local/tomcat/webapps -p 8080:8080 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
                 }
             }
         }           
