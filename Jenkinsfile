@@ -19,5 +19,12 @@ pipeline {
                 }
             }
         }
+        stage('docker push') {
+            steps {
+                script {
+                    sh 'sudo docker push $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
+                }
+            }
+        }
     }
 }
