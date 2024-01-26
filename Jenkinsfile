@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        stage('docker login) {
+        stage('docker login') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'manoj', usernameVariable: 'nani')]) {
