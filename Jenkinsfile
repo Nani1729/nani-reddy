@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'manoj', usernameVariable: 'nani')]) {
-                sh 'docker login --username $nani --password $manoj'
+                sh 'sudo docker login --username $nani --password $manoj'
                     }
                 }
             }
