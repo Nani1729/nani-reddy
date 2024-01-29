@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE_NAME = 'manojreddy12/docker'
-        DOCKER_IMAGE_TAG = 'v1.7'
+        DOCKER_IMAGE_TAG = 'v1.9'
     }
     stages {
         stage('docker images') {
@@ -39,7 +39,7 @@ pipeline {
         stage('dockerrun container') {
             steps {
                 script {
-                    sh 'sudo docker service create --name tomcar-service --replicas 3 --mount type=volume,source=my-tomcat-volume,target=/usr/local/tomcat/webapps -p 8080:8080 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
+                    sh 'sudo docker run -itd -p 9000:8080-v my-tomcat:/usr/local/tomcat/webapps  $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
                 }
             }
         }  
