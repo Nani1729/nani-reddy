@@ -39,7 +39,7 @@ pipeline {
         stage('dockerrun container') {
             steps {
                 script {
-                    sh 'sudo docker run -itd -p 9000:8080-v my-tomcat:/usr/local/tomcat/webapps  $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
+                    sh 'sudo docker run -itd -p 9000:9000 -v my-tomcat:/usr/local/tomcat/webapps  $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
                 }
             }
         }  
