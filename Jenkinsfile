@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE_NAME = 'manojreddy12/docker'
-        DOCKER_IMAGE_TAG = 'v6.7'
+        DOCKER_IMAGE_TAG = 'v1.7'
     }
     stages {
         stage('docker images') {
