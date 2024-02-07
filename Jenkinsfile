@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE_NAME = 'manojreddy12/docker'
-        DOCKER_IMAGE_TAG = 'v1.9'
+        DOCKER_IMAGE_TAG = 'v2.8'
     }
     stages {
         stage('docker images') {
@@ -36,12 +36,5 @@ pipeline {
                 }
             }
         }
-        stage('dockerrun container') {
-            steps {
-                script {
-                    sh 'sudo docker run -itd -p 8888:8080 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG'
-                }
-            }
-        }  
     }
 }
